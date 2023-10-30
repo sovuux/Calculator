@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Calculator", "Calculator.shproj", "{395BEC3E-F406-4F65-B6B1-4775DAE67A90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "..\Interface\Interface.csproj", "{2EE6F5D2-86F8-4B3E-AEC6-EBE6802D13AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2EE6F5D2-86F8-4B3E-AEC6-EBE6802D13AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EE6F5D2-86F8-4B3E-AEC6-EBE6802D13AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EE6F5D2-86F8-4B3E-AEC6-EBE6802D13AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EE6F5D2-86F8-4B3E-AEC6-EBE6802D13AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06F118E0-CFC3-46FB-AE81-8394243A7E57}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Calculator.projitems*{395bec3e-f406-4f65-b6b1-4775dae67a90}*SharedItemsImports = 13
+	EndGlobalSection
+EndGlobal
