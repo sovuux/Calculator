@@ -63,9 +63,9 @@ namespace Calculator.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap clear {
+        public static System.Drawing.Bitmap clearSymbol {
             get {
-                object obj = ResourceManager.GetObject("clear", resourceCulture);
+                object obj = ResourceManager.GetObject("clearSymbol", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

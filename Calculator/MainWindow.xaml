@@ -33,7 +33,9 @@
         <Button Content="%" Grid.Row="2" Grid.Column="0" FontSize="20"></Button>
         <Button Content="CE" Grid.Row="2" Grid.Column="1" FontSize="20"></Button>
         <Button Content="C" Grid.Row="2" Grid.Column="2" FontSize="20"></Button>
-        <Button Content="Clear1Symbol(img)" Grid.Row="2" Grid.Column="3" ></Button>
+        <Button  x:Name="clearSymbol" Grid.Row="2" Grid.Column="3" >
+            <Image Source="Resources/clearSymbol.png"></Image>
+        </Button>
         <Button Content="¹/x" Grid.Row="3" Grid.Column="0" FontSize="20"></Button>
         <Button Content="x²" Grid.Row="3" Grid.Column="1" FontSize="20"></Button>
         <Button Content="²√x" Grid.Row="3" Grid.Column="2" FontSize="20"></Button>
