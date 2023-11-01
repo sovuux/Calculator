@@ -42,6 +42,8 @@ bld/
 [Ll]ogs/
 
 #Файлы созданные VS
+*.vsidx
+*.lock
 *_i.c
 *_p.c
 *_h.h
@@ -72,3 +74,4 @@ bld/
 *.cache
 
 /obj
+/FileContentIndex
