@@ -44,6 +44,7 @@ namespace Calculator
             if (number == "C") //очистка textbox
             {
                 textBox.Clear();
+                result = 0;
             }
 
             else if (number == "=")  // вывод базовых математических решений
@@ -54,8 +55,24 @@ namespace Calculator
                 }
                 else
                 {
-                    double resultString = Convert.ToDouble(new DataTable().Compute(textBox.Text, null));
-                    textBox.Text = resultString.ToString();
+                    char powSimbol = '^';
+                    if (textBox.Text.Contains(powSimbol))
+                    {
+                        string[] parts = textBox.Text.Split('^');
+                        if (parts.Length ==2)
+                        {
+                            double number1 = Convert.ToDouble(parts[0]);
+                            double number2 = Convert.ToDouble(parts[1]);
+                            result = Math.Pow(number1, number2);
+                            textBox.Text = result.ToString();
+                        }
+                    }
+                    else
+                    {
+                        double resultString = Convert.ToDouble(new DataTable().Compute(textBox.Text, null));
+                        textBox.Text = resultString.ToString();
+                    }
+                    
                 }
             }
             
@@ -271,15 +288,7 @@ namespace Calculator
                 }
                 else
                 {
-                    if (!double.TryParse(textBox.Text, out double exponent))
-                    {
-                        MessageBox.Show("Введите числовое значение для степени!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                        return;
-                    }
-
-                    double baseNumber = Convert.ToDouble(textBox.Text);
-                    double result = Math.Pow(baseNumber, exponent);
-                    textBox.Text = result.ToString();
+                    textBox.Text += "^";
                 }
             }
 
