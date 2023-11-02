@@ -157,6 +157,20 @@ namespace Calculator
 
             }
 
+            else if (number == "%")
+            {
+                if (textBox.Text == "")
+                {
+                    MessageBox.Show("Вы не ввели число!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
+                else
+                {
+                   result = Convert.ToDouble(textBox.Text);
+                   result /= 100;
+                   textBox.Text = result.ToString();
+                }
+            }
+
             else if (clickedButton == clearSymbol) // удаление последнего символа
             {
                 if (textBox.Text == "")
