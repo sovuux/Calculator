@@ -36,6 +36,29 @@ namespace Calculator
             
         }
         public static double result;
+        public static double number1;
+        public static double number2;
+
+        public void CalculateResult()
+        {
+            char powSimbol = '^';
+            if (textBox.Text.Contains(powSimbol))
+            {
+                string[] parts = textBox.Text.Split('^');
+                if (parts.Length == 2)
+                {
+                    number1 = Convert.ToDouble(parts[0]);
+                    number2 = Convert.ToDouble(parts[1]);
+                    result = Math.Pow(number1, number2);
+                    textBox.Text = result.ToString();
+                }
+            }
+            else
+            {
+                double resultString = Convert.ToDouble(new DataTable().Compute(textBox.Text, null));
+                textBox.Text = resultString.ToString();
+            }
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -47,6 +70,23 @@ namespace Calculator
                 result = 0;
             }
 
+            else if (number =="CE")
+            {
+                if (!string.IsNullOrEmpty(textBox.Text))
+                {
+                    int lastNumberIndex = textBox.Text.LastIndexOfAny(new char[] { '+', '-', '*', '/', '^'});
+                    if (lastNumberIndex != -1)
+                    {
+                        textBox.Text = textBox.Text.Remove(lastNumberIndex);
+                    }
+                    else
+                    {
+                        textBox.Clear();
+                        result = 0;
+                    }
+                }
+            }
+
             else if (number == "=")  // вывод базовых математических решений
             {
                 if (textBox.Text == "")
@@ -55,24 +95,7 @@ namespace Calculator
                 }
                 else
                 {
-                    char powSimbol = '^';
-                    if (textBox.Text.Contains(powSimbol))
-                    {
-                        string[] parts = textBox.Text.Split('^');
-                        if (parts.Length ==2)
-                        {
-                            double number1 = Convert.ToDouble(parts[0]);
-                            double number2 = Convert.ToDouble(parts[1]);
-                            result = Math.Pow(number1, number2);
-                            textBox.Text = result.ToString();
-                        }
-                    }
-                    else
-                    {
-                        double resultString = Convert.ToDouble(new DataTable().Compute(textBox.Text, null));
-                        textBox.Text = resultString.ToString();
-                    }
-                    
+                    CalculateResult();
                 }
             }
             
@@ -84,15 +107,54 @@ namespace Calculator
                     textBox.Text += "0.";
                 }
             }
+            else if (number == "+")
+            {
+                if (textBox.Text == "")
+                {
+                    MessageBox.Show("Вы не ввели число!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
+                else
+                {
+                    textBox.Text += " + ";
+                }
+            }
+
+            else if (number == "-")
+            {
+                if (textBox.Text == "")
+                {
+                    MessageBox.Show("Вы не ввели число!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
+                else
+                {
+                    textBox.Text += " - ";
+                }
+            }
 
             else if (number == "×") // замена знака умножения
             {
-                textBox.Text += "*";
+                if (textBox.Text == "")
+                {
+                    MessageBox.Show("Вы не ввели число!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
+                else
+                {
+                    textBox.Text += " * ";
+                }
+               
             }
 
             else if (number == "÷") // замена знака деление
             {
-                textBox.Text += "/";
+                if (textBox.Text == "")
+                {
+                    MessageBox.Show("Вы не ввели число!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
+                else
+                {
+                    textBox.Text += " / ";
+                }
+
             }
 
             else if (clickedButton == clearSymbol) // удаление последнего символа
@@ -288,7 +350,7 @@ namespace Calculator
                 }
                 else
                 {
-                    textBox.Text += "^";
+                    textBox.Text += " ^ ";
                 }
             }
 
@@ -446,6 +508,7 @@ namespace Calculator
             {
                 textBox.Text += "-";
             }
+
             else if (e.Key == Key.Enter)
             {
                 if (textBox.Text == "")
@@ -454,8 +517,7 @@ namespace Calculator
                 }
                 else
                 {
-                    double resultString = Convert.ToDouble(new DataTable().Compute(textBox.Text, null));
-                    textBox.Text = resultString.ToString();
+                    CalculateResult();
                 }
                 
             }
