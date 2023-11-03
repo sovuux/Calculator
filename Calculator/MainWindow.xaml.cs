@@ -39,6 +39,7 @@ namespace Calculator
         public static double number1;
         public static double number2;
 
+        private double memoryValue = 0;
         public void CalculateResult()
         {
             char powSimbol = '^';
@@ -68,6 +69,34 @@ namespace Calculator
             {
                 textBox.Clear();
                 result = 0;
+            }
+
+            else if (number == "MC")
+            {
+                memoryValue = 0;
+            }
+
+            else if (number == "MR")
+            {
+                textBox.Text = memoryValue.ToString();
+            }
+
+            else if (number == "M+")
+            {
+                if (!string.IsNullOrEmpty(textBox.Text))
+                {
+                    double textBoxValue = Convert.ToDouble(textBox.Text);
+                    memoryValue += textBoxValue;
+                }
+            }
+
+            else if (number == "M-")
+            {
+                if (!string.IsNullOrEmpty(textBox.Text))
+                {
+                    double textBoxValue = Convert.ToDouble(textBox.Text);
+                    memoryValue -= textBoxValue;
+                }
             }
 
             else if (number =="CE")
@@ -159,16 +188,16 @@ namespace Calculator
 
             else if (number == "%")
             {
-                if (textBox.Text == "")
-                {
+               if (textBox.Text == "")
+               {
                     MessageBox.Show("Вы не ввели число!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                }
-                else
-                {
-                   result = Convert.ToDouble(textBox.Text);
-                   result /= 100;
-                   textBox.Text = result.ToString();
-                }
+               }
+               else
+               {
+                    result = Convert.ToDouble(textBox.Text);
+                    result /= 100;
+                    textBox.Text = result.ToString();
+               }
             }
 
             else if (clickedButton == clearSymbol) // удаление последнего символа
