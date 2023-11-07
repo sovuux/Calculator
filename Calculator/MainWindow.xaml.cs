@@ -111,7 +111,14 @@ namespace Calculator
 
             else if (number == "MR")
             {
-                textBox.Text += memoryValue.ToString();
+                if (!textBox.Text.Contains("+") && !textBox.Text.Contains("-") && !textBox.Text.Contains("/") && !textBox.Text.Contains("*") && !textBox.Text.Contains("^"))
+                {
+                    textBox.Text = memoryValue.ToString();
+                }
+                else
+                {
+                    textBox.Text += memoryValue.ToString();
+                }
             }
 
             else if (number == "M+")
