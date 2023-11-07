@@ -35,6 +35,11 @@ namespace Calculator
             }
             buttonMC.IsEnabled = false;
             buttonMR.IsEnabled = false;
+            if (memoryValue == 0)
+            {
+                buttonMC.IsEnabled = false;
+                buttonMR.IsEnabled = false;
+            }
         }
 
         public static double result;
@@ -127,37 +132,62 @@ namespace Calculator
 
             else if (number == "M+")
             {
-                if (!string.IsNullOrEmpty(textBox.Text))
+                if (!textBox.Text.Contains("+") && !textBox.Text.Contains("-") && !textBox.Text.Contains("/") && !textBox.Text.Contains("*") && !textBox.Text.Contains("^")) 
                 {
-                    double textBoxValue = Convert.ToDouble(textBox.Text);
-                    memoryValue += textBoxValue;
-                    if (memoryValue != 0)
+                    if (!string.IsNullOrEmpty(textBox.Text))
                     {
-                        buttonMR.IsEnabled = true;
-                        buttonMC.IsEnabled = true;
+                        double textBoxValue = Convert.ToDouble(textBox.Text);
+                        memoryValue += textBoxValue;
+                        if (memoryValue != 0)
+                        {
+                            buttonMR.IsEnabled = true;
+                            buttonMC.IsEnabled = true;
+                        }
+                        else
+                        {
+                            buttonMR.IsEnabled = false;
+                            buttonMC.IsEnabled = false;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Не выполнена операция для записи в память калькулятора!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Не выполнена операция для записи в память калькулятора!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MessageBox.Show("Для записи в память необходимо завершить операцию!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+                    
             }
 
             else if (number == "M-")
             {
-                if (!string.IsNullOrEmpty(textBox.Text))
+                if (!textBox.Text.Contains("+") && !textBox.Text.Contains("-") && !textBox.Text.Contains("/") && !textBox.Text.Contains("*") && !textBox.Text.Contains("^"))
                 {
-                    double textBoxValue = Convert.ToDouble(textBox.Text);
-                    memoryValue -= textBoxValue;
-                    if (memoryValue != 0)
+                    if (!string.IsNullOrEmpty(textBox.Text))
                     {
-                        buttonMR.IsEnabled = true;
-                        buttonMC.IsEnabled = true;
+                        double textBoxValue = Convert.ToDouble(textBox.Text);
+                        memoryValue -= textBoxValue;
+                        if (memoryValue != 0)
+                        {
+                            buttonMR.IsEnabled = true;
+                            buttonMC.IsEnabled = true;
+                        }
+                        else
+                        {
+                            buttonMR.IsEnabled = false;
+                            buttonMC.IsEnabled = false;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Память была пуста!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Память была пуста!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MessageBox.Show("Для записи в память необходимо завершить операцию!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
 
