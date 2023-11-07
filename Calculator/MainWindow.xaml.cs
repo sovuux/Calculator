@@ -42,22 +42,55 @@ namespace Calculator
         private double memoryValue = 0;
         public void CalculateResult()
         {
-            char powSimbol = '^';
-            if (textBox.Text.Contains(powSimbol))
+            char powSymbol = '^';
+
+            if (textBox.Text.Contains(powSymbol))
             {
-                string[] parts = textBox.Text.Split('^');
+                string[] parts = textBox.Text.Split(powSymbol);
+
                 if (parts.Length == 2)
                 {
                     number1 = Convert.ToDouble(parts[0]);
                     number2 = Convert.ToDouble(parts[1]);
+
                     result = Math.Pow(number1, number2);
+
+                    if (double.IsInfinity(result))
+                    {
+                        MessageBox.Show("Неверное значение! Результат вычисления равен бесконечности.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        return;
+                    }
+
                     textBox.Text = result.ToString();
                 }
             }
             else
             {
-                double resultString = Convert.ToDouble(new DataTable().Compute(textBox.Text, null));
-                textBox.Text = resultString.ToString();
+                {
+                    DataTable dataTable = new DataTable();
+                    double resultString;
+
+                    try
+                    {
+                        resultString = Convert.ToDouble(dataTable.Compute(textBox.Text, null));
+
+                        if (double.IsInfinity(resultString))
+                        {
+                            MessageBox.Show("Неверное значение! Результат вычисления равен бесконечности.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                            return;
+                        }
+
+                        textBox.Text = resultString.ToString();
+                    }
+                    catch (InvalidCastException)
+                    {
+                        MessageBox.Show("Неверное значение! Проверьте правильность ввода числа.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
+                    catch (OverflowException)
+                    {
+                        MessageBox.Show("Неверное значение! Результат вычисления выходит за пределы допустимого диапазона.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
+                }
             }
         }
 
@@ -78,7 +111,7 @@ namespace Calculator
 
             else if (number == "MR")
             {
-                textBox.Text = memoryValue.ToString();
+                textBox.Text += memoryValue.ToString();
             }
 
             else if (number == "M+")
@@ -88,6 +121,10 @@ namespace Calculator
                     double textBoxValue = Convert.ToDouble(textBox.Text);
                     memoryValue += textBoxValue;
                 }
+                else
+                {
+                    MessageBox.Show("Не выполнена операция для записи в память калькулятора!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
             }
 
             else if (number == "M-")
@@ -96,6 +133,10 @@ namespace Calculator
                 {
                     double textBoxValue = Convert.ToDouble(textBox.Text);
                     memoryValue -= textBoxValue;
+                }
+                else
+                {
+                    MessageBox.Show("Память была пуста!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
             }
 
