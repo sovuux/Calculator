@@ -109,6 +109,8 @@ namespace Calculator
             else if (number == "MC")
             {
                 memoryValue = 0;
+                buttonMR.IsEnabled = false;
+                buttonMC.IsEnabled = false;
             }
 
             else if (number == "MR")
@@ -129,8 +131,11 @@ namespace Calculator
                 {
                     double textBoxValue = Convert.ToDouble(textBox.Text);
                     memoryValue += textBoxValue;
-                    buttonMR.IsEnabled = true;
-                    buttonMC.IsEnabled = true;
+                    if (memoryValue != 0)
+                    {
+                        buttonMR.IsEnabled = true;
+                        buttonMC.IsEnabled = true;
+                    }
                 }
                 else
                 {
@@ -144,6 +149,11 @@ namespace Calculator
                 {
                     double textBoxValue = Convert.ToDouble(textBox.Text);
                     memoryValue -= textBoxValue;
+                    if (memoryValue != 0)
+                    {
+                        buttonMR.IsEnabled = true;
+                        buttonMC.IsEnabled = true;
+                    }
                 }
                 else
                 {
