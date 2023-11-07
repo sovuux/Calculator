@@ -35,11 +35,7 @@ namespace Calculator
             }
             buttonMC.IsEnabled = false;
             buttonMR.IsEnabled = false;
-            if (memoryValue == 0)
-            {
-                buttonMC.IsEnabled = false;
-                buttonMR.IsEnabled = false;
-            }
+            textBox.Text = "0";
         }
 
         public static double result;
@@ -108,6 +104,7 @@ namespace Calculator
             if (number == "C") //очистка textbox
             {
                 textBox.Clear();
+                textBox.Text = "0";
                 result = 0;
             }
 
@@ -156,7 +153,9 @@ namespace Calculator
                 }
                 else
                 {
-                    MessageBox.Show("Для записи в память необходимо завершить операцию!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    memoryValue = 0;
+                    buttonMR.IsEnabled = true;
+                    buttonMC.IsEnabled = true;
                 }
                     
             }
@@ -187,7 +186,9 @@ namespace Calculator
                 }
                 else
                 {
-                    MessageBox.Show("Для записи в память необходимо завершить операцию!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    memoryValue = 0;
+                    buttonMR.IsEnabled = true;
+                    buttonMC.IsEnabled = true;
                 }
             }
 
@@ -203,6 +204,7 @@ namespace Calculator
                     else
                     {
                         textBox.Clear();
+                        textBox.Text = "0";
                         result = 0;
                     }
                 }
@@ -220,12 +222,108 @@ namespace Calculator
                 }
             }
             
+            else if (number == "1")
+            {
+                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                {
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                }
+                textBox.Text += "1";
+            }
+
+            else if (number == "2")
+            {
+                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                {
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                }
+                textBox.Text += "2";
+            }
+
+            else if (number == "3")
+            {
+                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                {
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                }
+                textBox.Text += "3";
+            }
+
+            else if (number == "4")
+            {
+                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                {
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                }
+                textBox.Text += "4";
+            }
+
+            else if (number == "5")
+            {
+                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                {
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                }
+                textBox.Text += "5";
+            }
+
+            else if (number == "6")
+            {
+                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                {
+                    {
+                        textBox.Text = textBox.Text.Remove(0, 1);
+                    }
+                    
+                }
+                textBox.Text += "6";
+            }
+
+            else if (number == "7")
+            {
+                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                {
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                }
+                textBox.Text += "7";
+            }
+
+            else if (number == "8")
+            {
+                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                {
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                }
+                textBox.Text += "8";
+            }
+
+            else if (number == "9")
+            {
+                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                {
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                }
+                textBox.Text += "9";
+            }
+
+            else if (number == "0")
+            {
+                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                {
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                }
+                textBox.Text += "0";
+            }
 
             else if (number == ",") // замена знака запятой
             {
                 if (textBox.Text == "")
                 {
                     textBox.Text += "0.";
+                }
+                else if (!textBox.Text.Contains("."))
+                {
+                    textBox.Text += ".";
                 }
             }
             else if (number == "+")
