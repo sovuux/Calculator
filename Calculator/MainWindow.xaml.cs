@@ -33,8 +33,10 @@ namespace Calculator
                     ((Button) element).Click += Button_Click;
                 }    
             }
-            
+            buttonMC.IsEnabled = false;
+            buttonMR.IsEnabled = false;
         }
+
         public static double result;
         public static double number1;
         public static double number2;
@@ -127,6 +129,8 @@ namespace Calculator
                 {
                     double textBoxValue = Convert.ToDouble(textBox.Text);
                     memoryValue += textBoxValue;
+                    buttonMR.IsEnabled = true;
+                    buttonMC.IsEnabled = true;
                 }
                 else
                 {
