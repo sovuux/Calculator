@@ -129,7 +129,7 @@ namespace Calculator
 
             else if (number == "M+")
             {
-                if (!textBox.Text.Contains("+") && !textBox.Text.Contains("-") && !textBox.Text.Contains("/") && !textBox.Text.Contains("*") && !textBox.Text.Contains("^")) 
+                if (!textBox.Text.Contains("+") && !textBox.Text.Contains("-") && !textBox.Text.Contains("/") && !textBox.Text.Contains("*") && !textBox.Text.Contains("^"))
                 {
                     if (!string.IsNullOrEmpty(textBox.Text))
                     {
@@ -157,7 +157,7 @@ namespace Calculator
                     buttonMR.IsEnabled = true;
                     buttonMC.IsEnabled = true;
                 }
-                    
+
             }
 
             else if (number == "M-")
@@ -192,11 +192,11 @@ namespace Calculator
                 }
             }
 
-            else if (number =="CE")
+            else if (number == "CE")
             {
                 if (!string.IsNullOrEmpty(textBox.Text))
                 {
-                    int lastNumberIndex = textBox.Text.LastIndexOfAny(new char[] { '+', '-', '*', '/', '^'});
+                    int lastNumberIndex = textBox.Text.LastIndexOfAny(new char[] { '+', '-', '*', '/', '^' });
                     if (lastNumberIndex != -1)
                     {
                         textBox.Text = textBox.Text.Remove(lastNumberIndex);
@@ -218,113 +218,170 @@ namespace Calculator
                 }
                 else
                 {
-                    CalculateResult();
+                    try
+                    {
+                        CalculateResult();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
                 }
             }
-            
+
             else if (number == "1")
             {
                 if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
                 {
-                    textBox.Text = textBox.Text.Remove(0, 1);
+                    if (textBox.Text.Contains("."))
+                    {
+                        textBox.Text += "1";
+                    }
+                    else
+                    {
+                        textBox.Text = textBox.Text.Remove(0, 1);
+                        textBox.Text += "1";
+                    }
                 }
-                textBox.Text += "1";
             }
 
             else if (number == "2")
             {
                 if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
                 {
-                    textBox.Text = textBox.Text.Remove(0, 1);
+                    if (textBox.Text.Contains("."))
+                    {
+                        textBox.Text += "2";
+                    }
+                    else
+                    {
+                        textBox.Text = textBox.Text.Remove(0, 1);
+                        textBox.Text += "2";
+                    }
                 }
-                textBox.Text += "2";
             }
 
             else if (number == "3")
             {
                 if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
                 {
-                    textBox.Text = textBox.Text.Remove(0, 1);
+                    if (textBox.Text.Contains("."))
+                    {
+                        textBox.Text += "3";
+                    }
+                    else
+                    {
+                        textBox.Text = textBox.Text.Remove(0, 1);
+                        textBox.Text += "3";
+                    }
                 }
-                textBox.Text += "3";
             }
 
             else if (number == "4")
             {
                 if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
                 {
-                    textBox.Text = textBox.Text.Remove(0, 1);
+                    if (textBox.Text.Contains("."))
+                    {
+                        textBox.Text += "4";
+                    }
+                    else
+                    {
+                        textBox.Text = textBox.Text.Remove(0, 1);
+                        textBox.Text += "4";
+                    }
                 }
-                textBox.Text += "4";
             }
 
             else if (number == "5")
             {
                 if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
                 {
-                    textBox.Text = textBox.Text.Remove(0, 1);
+                    if (textBox.Text.Contains("."))
+                    {
+                        textBox.Text += "5";
+                    }
+                    else
+                    {
+                        textBox.Text = textBox.Text.Remove(0, 1);
+                        textBox.Text += "5";
+                    }
                 }
-                textBox.Text += "5";
             }
 
             else if (number == "6")
             {
                 if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
                 {
+                    if (textBox.Text.Contains("."))
+                    {
+                        textBox.Text += "6";
+                    }
+                    else
                     {
                         textBox.Text = textBox.Text.Remove(0, 1);
+                        textBox.Text += "6";
                     }
-                    
                 }
-                textBox.Text += "6";
             }
 
             else if (number == "7")
             {
                 if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
                 {
-                    textBox.Text = textBox.Text.Remove(0, 1);
+                    if (textBox.Text.Contains("."))
+                    {
+                        textBox.Text += "7";
+                    }
+                    else
+                    {
+                        textBox.Text = textBox.Text.Remove(0, 1);
+                        textBox.Text += "7";
+                    }
                 }
-                textBox.Text += "7";
             }
 
             else if (number == "8")
             {
                 if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
                 {
-                    textBox.Text = textBox.Text.Remove(0, 1);
+                    if (textBox.Text.Contains("."))
+                    {
+                        textBox.Text += "8";
+                    }
+                    else
+                    {
+                        textBox.Text = textBox.Text.Remove(0, 1);
+                        textBox.Text += "8";
+                    }
                 }
-                textBox.Text += "8";
             }
 
             else if (number == "9")
             {
                 if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
                 {
-                    textBox.Text = textBox.Text.Remove(0, 1);
+                    if (textBox.Text.Contains("."))
+                    {
+                        textBox.Text += "9";
+                    }
+                    else
+                    {
+                        textBox.Text = textBox.Text.Remove(0, 1);
+                        textBox.Text += "9";
+                    }
                 }
-                textBox.Text += "9";
             }
 
             else if (number == "0")
             {
-                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
-                {
-                    textBox.Text = textBox.Text.Remove(0, 1);
-                }
                 textBox.Text += "0";
             }
 
             else if (number == ",") // замена знака запятой
             {
-                if (textBox.Text == "")
-                {
-                    textBox.Text += "0.";
-                }
-                else if (!textBox.Text.Contains("."))
-                {
-                    textBox.Text += ".";
-                }
+
+                textBox.Text += ".";
             }
             else if (number == "+")
             {
@@ -360,7 +417,7 @@ namespace Calculator
                 {
                     textBox.Text += " * ";
                 }
-               
+
             }
 
             else if (number == "÷") // замена знака деление
@@ -378,16 +435,16 @@ namespace Calculator
 
             else if (number == "%")
             {
-               if (textBox.Text == "")
-               {
+                if (textBox.Text == "")
+                {
                     MessageBox.Show("Вы не ввели число!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-               }
-               else
-               {
+                }
+                else
+                {
                     result = Convert.ToDouble(textBox.Text);
                     result /= 100;
                     textBox.Text = result.ToString();
-               }
+                }
             }
 
             else if (clickedButton == clearSymbol) // удаление последнего символа
@@ -404,7 +461,7 @@ namespace Calculator
                         textBox.Text = textBox.Text.Remove(textBox.Text.Length - 1);
                     }
                 }
-                
+
             }
 
             else if (number == "eˣ") // вывод экспоненты
@@ -418,7 +475,7 @@ namespace Calculator
                     result = Math.Exp(Convert.ToDouble(textBox.Text));
                     textBox.Text = result.ToString();
                 }
-                
+
             }
 
             else if (number == "x²") // вывод числа в квадрате
@@ -429,10 +486,10 @@ namespace Calculator
                 }
                 else
                 {
-                    result = Math.Pow(Convert.ToDouble(textBox.Text), 2); 
+                    result = Math.Pow(Convert.ToDouble(textBox.Text), 2);
                     textBox.Text = result.ToString();
                 }
-                
+
             }
 
             else if (number == "²√x") // вывод квадратного корня
@@ -446,7 +503,7 @@ namespace Calculator
                     result = Math.Sqrt(Convert.ToDouble(textBox.Text));
                     textBox.Text = result.ToString();
                 }
-                
+
             }
 
             else if (number == "¹/x") // вывод числа 1/x
@@ -460,7 +517,7 @@ namespace Calculator
                     result = 1 / Convert.ToDouble(textBox.Text);
                     textBox.Text = result.ToString();
                 }
-                
+
             }
 
             else if (number == "sin") // вывод синуса
@@ -474,7 +531,7 @@ namespace Calculator
                     result = Math.Sin(Convert.ToDouble(textBox.Text));
                     textBox.Text = result.ToString();
                 }
-                
+
             }
 
             else if (number == "cos") // вывод косинуса
@@ -488,7 +545,7 @@ namespace Calculator
                     result = Math.Cos(Convert.ToDouble(textBox.Text));
                     textBox.Text = result.ToString();
                 }
-                
+
             }
 
             else if (number == "tg") //  вывод тангеса
@@ -502,7 +559,7 @@ namespace Calculator
                     result = Math.Tan(Convert.ToDouble(textBox.Text));
                     textBox.Text = result.ToString();
                 }
-                
+
             }
 
             else if (number == "arctg") // вывод арктангенса
@@ -516,7 +573,7 @@ namespace Calculator
                     result = Math.Atan(Convert.ToDouble(textBox.Text));
                     textBox.Text = result.ToString();
                 }
-                
+
             }
 
             else if (number == "log") // вывод логарифма 
@@ -530,7 +587,7 @@ namespace Calculator
                     result = Math.Log(Convert.ToDouble(textBox.Text));
                     textBox.Text = result.ToString();
                 }
-                
+
             }
 
             else if (number == "Ln") // вывод логарифма по основанию 10
@@ -544,7 +601,7 @@ namespace Calculator
                     result = Math.Log10(Convert.ToDouble(textBox.Text));
                     textBox.Text = result.ToString();
                 }
-                
+
             }
 
             else if (number == "!") // вывод факториала числа
@@ -576,7 +633,7 @@ namespace Calculator
 
             else if (number == "xʸ") // вывод числа x в степени y
             {
-                
+
                 if (textBox.Text == "")
                 {
                     MessageBox.Show("Вы не ввели число!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
