@@ -382,34 +382,9 @@ namespace Calculator
 
             else if (number == ",")
             {
-                bool splitSymbols = textBox.Text.Split(new char[] { '+', '-', '*', '/', '^' }).Any(splitPart => splitPart.Contains(","));
-                if (!splitSymbols)
+                if (!textBox.Text.Contains(","))
                 {
-                    if (textBox.Text.EndsWith(" ") || textBox.Text.Length == 0)
-                    {
-                        textBox.Text += "0.";
-                    }
-                    else
-                    {
-                        textBox.Text += ".";
-                    }
-                }
-                else
-                {
-                    int lastIndex = textBox.Text.LastIndexOf(".");
-                    int openBracketIndex = textBox.Text.LastIndexOf("(");
-                    int closeBracketIndex = textBox.Text.LastIndexOf(")");
-
-                    if (lastIndex > openBracketIndex && lastIndex > closeBracketIndex)
-                    {
-                        string lastNumber = textBox.Text.Substring(lastIndex + 1);
-                        bool symbolExists = lastNumber.Contains(".");
-
-                        if (!symbolExists)
-                        {
-                            textBox.Text += ".";
-                        }
-                    }
+                    textBox.Text += ",";
                 }
             }
 
