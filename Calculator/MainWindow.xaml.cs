@@ -41,6 +41,7 @@ namespace Calculator
         public static double result;
         public static double number1;
         public static double number2;
+        public static string textString;
 
         private double memoryValue = 0;
         public void CalculateResult()
@@ -231,158 +232,187 @@ namespace Calculator
 
             else if (number == "1")
             {
-                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                textString = textBox.Text;
+                char firstSymbol = textString[0];
+                if (firstSymbol == '0')
                 {
-                    if (textBox.Text.Contains("."))
-                    {
-                        textBox.Text += "1";
-                    }
-                    else
-                    {
-                        textBox.Text = textBox.Text.Remove(0, 1);
-                        textBox.Text += "1";
-                    }
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                    textBox.Text += "1";
+                }
+                else
+                {
+                    textBox.Text += "1";
                 }
             }
 
             else if (number == "2")
             {
-                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                textString = textBox.Text;
+                char firstSymbol = textString[0];
+                if (firstSymbol == '0')
                 {
-                    if (textBox.Text.Contains("."))
-                    {
-                        textBox.Text += "2";
-                    }
-                    else
-                    {
-                        textBox.Text = textBox.Text.Remove(0, 1);
-                        textBox.Text += "2";
-                    }
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                    textBox.Text += "2";
+                }
+                else
+                {
+                    textBox.Text += "2";
                 }
             }
 
             else if (number == "3")
             {
-                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                textString = textBox.Text;
+                char firstSymbol = textString[0];
+                if (firstSymbol == '0')
                 {
-                    if (textBox.Text.Contains("."))
-                    {
-                        textBox.Text += "3";
-                    }
-                    else
-                    {
-                        textBox.Text = textBox.Text.Remove(0, 1);
-                        textBox.Text += "3";
-                    }
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                    textBox.Text += "3";
+                }
+                else
+                {
+                    textBox.Text += "3";
                 }
             }
 
             else if (number == "4")
             {
-                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                textString = textBox.Text;
+                char firstSymbol = textString[0];
+                if (firstSymbol == '0')
                 {
-                    if (textBox.Text.Contains("."))
-                    {
-                        textBox.Text += "4";
-                    }
-                    else
-                    {
-                        textBox.Text = textBox.Text.Remove(0, 1);
-                        textBox.Text += "4";
-                    }
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                    textBox.Text += "4";
+                }
+                else
+                {
+                    textBox.Text += "4";
                 }
             }
 
             else if (number == "5")
             {
-                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                textString = textBox.Text;
+                char firstSymbol = textString[0];
+                if (firstSymbol == '0')
                 {
-                    if (textBox.Text.Contains("."))
-                    {
-                        textBox.Text += "5";
-                    }
-                    else
-                    {
-                        textBox.Text = textBox.Text.Remove(0, 1);
-                        textBox.Text += "5";
-                    }
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                    textBox.Text += "5";
+                }
+                else
+                {
+                    textBox.Text += "5";
                 }
             }
 
             else if (number == "6")
             {
-                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                textString = textBox.Text;
+                char firstSymbol = textString[0];
+                if (firstSymbol == '0')
                 {
-                    if (textBox.Text.Contains("."))
-                    {
-                        textBox.Text += "6";
-                    }
-                    else
-                    {
-                        textBox.Text = textBox.Text.Remove(0, 1);
-                        textBox.Text += "6";
-                    }
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                    textBox.Text += "6";
+                }
+                else
+                {
+                    textBox.Text += "6";
                 }
             }
 
             else if (number == "7")
             {
-                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                textString = textBox.Text;
+                char firstSymbol = textString[0];
+                if (firstSymbol == '0')
                 {
-                    if (textBox.Text.Contains("."))
-                    {
-                        textBox.Text += "7";
-                    }
-                    else
-                    {
-                        textBox.Text = textBox.Text.Remove(0, 1);
-                        textBox.Text += "7";
-                    }
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                    textBox.Text += "7";
+                }
+                else
+                {
+                    textBox.Text += "7";
                 }
             }
 
             else if (number == "8")
             {
-                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                textString = textBox.Text;
+                char firstSymbol = textString[0];
+                if (firstSymbol == '0')
                 {
-                    if (textBox.Text.Contains("."))
-                    {
-                        textBox.Text += "8";
-                    }
-                    else
-                    {
-                        textBox.Text = textBox.Text.Remove(0, 1);
-                        textBox.Text += "8";
-                    }
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                    textBox.Text += "8";
+                }
+                else
+                {
+                    textBox.Text += "8";
                 }
             }
 
             else if (number == "9")
             {
-                if (textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                textString = textBox.Text;
+                char firstSymbol = textString[0];
+                if (firstSymbol == '0')
                 {
-                    if (textBox.Text.Contains("."))
-                    {
-                        textBox.Text += "9";
-                    }
-                    else
-                    {
-                        textBox.Text = textBox.Text.Remove(0, 1);
-                        textBox.Text += "9";
-                    }
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                    textBox.Text += "9";
+                }
+                else
+                {
+                    textBox.Text += "9";
                 }
             }
 
             else if (number == "0")
             {
-                textBox.Text += "0";
+                textString = textBox.Text;
+                char firstSymbol = textString[0];
+                if (firstSymbol == '0')
+                {
+                    textBox.Text = textBox.Text.Remove(0, 1);
+                    textBox.Text += "0";
+                }
+                else
+                {
+                    textBox.Text += "0";
+                }
             }
 
-            else if (number == ",") // замена знака запятой
+            else if (number == ",")
             {
+                bool splitSymbols = textBox.Text.Split(new char[] { '+', '-', '*', '/', '^' }).Any(splitPart => splitPart.Contains(","));
+                if (!splitSymbols)
+                {
+                    if (textBox.Text.EndsWith(" ") || textBox.Text.Length == 0)
+                    {
+                        textBox.Text += "0.";
+                    }
+                    else
+                    {
+                        textBox.Text += ".";
+                    }
+                }
+                else
+                {
+                    int lastIndex = textBox.Text.LastIndexOf(".");
+                    int openBracketIndex = textBox.Text.LastIndexOf("(");
+                    int closeBracketIndex = textBox.Text.LastIndexOf(")");
 
-                textBox.Text += ".";
+                    if (lastIndex > openBracketIndex && lastIndex > closeBracketIndex)
+                    {
+                        string lastNumber = textBox.Text.Substring(lastIndex + 1);
+                        bool symbolExists = lastNumber.Contains(".");
+
+                        if (!symbolExists)
+                        {
+                            textBox.Text += ".";
+                        }
+                    }
+                }
             }
+
             else if (number == "+")
             {
                 if (textBox.Text == "")
