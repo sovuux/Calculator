@@ -79,19 +79,15 @@ namespace Calculator
 
                         if (double.IsInfinity(resultString))
                         {
-                            MessageBox.Show("Неверное значение! Результат вычисления равен бесконечности.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                            textBox.Text = "∞";
                             return;
                         }
 
                         textBox.Text = resultString.ToString();
                     }
-                    catch (InvalidCastException)
-                    {
-                        MessageBox.Show("Неверное значение! Проверьте правильность ввода числа.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                    }
                     catch (OverflowException)
                     {
-                        MessageBox.Show("Неверное значение! Результат вычисления выходит за пределы допустимого диапазона.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        textBox.Text = "∞";
                     }
                 }
             }
@@ -210,9 +206,8 @@ namespace Calculator
                     {
                         CalculateResult();
                     }
-                    catch (Exception ex)
+                    catch 
                     {
-                        MessageBox.Show(ex.ToString());
                     }
                 }
             }
@@ -911,9 +906,8 @@ namespace Calculator
                     {
                         CalculateResult();
                     }
-                    catch (Exception ex)  
+                    catch 
                     {
-                        MessageBox.Show(ex.ToString());
                     }
                 }
             }
