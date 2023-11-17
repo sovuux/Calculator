@@ -906,7 +906,7 @@ namespace Calculator
                     {
                         CalculateResult();
                     }
-                    catch 
+                    catch (Exception ex) 
                     {
                     }
                 }
