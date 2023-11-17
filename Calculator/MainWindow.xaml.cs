@@ -886,10 +886,33 @@ namespace Calculator
             
             else if (e.Key == Key.Back) //стирает последний символ
             {
-                if (!string.IsNullOrEmpty(textBox.Text))
+                if (textBox.Text != "")
                 {
-                    textBox.Text = textBox.Text.Trim();
-                    textBox.Text = textBox.Text.Remove(textBox.Text.Length - 1);
+                    if (!string.IsNullOrEmpty(textBox.Text))
+                    {
+                        if (textBox.Text.Contains(" "))
+                        {
+                            textBox.Text = textBox.Text.Trim();
+                            textBox.Text = textBox.Text.Remove(textBox.Text.Length - 2);
+                            if (textBox.Text.Length < 1)
+                            {
+                                textBox.Text += "0";
+                            }
+                        }
+                        else
+                        {
+                            textBox.Text = textBox.Text.Trim();
+                            textBox.Text = textBox.Text.Remove(textBox.Text.Length - 1);
+                            if (textBox.Text.Length < 1)
+                            {
+                                textBox.Text += "0";
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    textBox.Text += "0";
                 }
             }
 
