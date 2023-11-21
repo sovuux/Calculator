@@ -25,7 +25,7 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="textBox" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="" TextAlignment="Right" FontSize="40"></TextBox>
+        <TextBox x:Name="textBox" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="" TextAlignment="Right" FontSize="40" TextChanged="textBox_TextChanged"></TextBox>
         <Button Content="MC" Grid.Row="1" Grid.Column="0" FontSize="20" x:Name="buttonMC"></Button>
         <Button Content="MR" Grid.Row="1" Grid.Column="1" FontSize="20" x:Name="buttonMR"></Button>
         <Button Content="M+" Grid.Row="1" Grid.Column="2" FontSize="20"></Button>

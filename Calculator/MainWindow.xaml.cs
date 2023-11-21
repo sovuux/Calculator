@@ -44,6 +44,16 @@ namespace Calculator
         public static string textString;
 
         private double memoryValue = 0;
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (textBox.Text.Contains(","))
+            {
+                textBox.Text = textBox.Text.Replace(",", ".");
+                textBox.SelectionStart = textBox.Text.Length;
+            }
+        }
         public void CalculateResult()
         {
             char powSymbol = '^';
