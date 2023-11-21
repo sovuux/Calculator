@@ -364,9 +364,9 @@ namespace Calculator
 
             else if (number == ",")
             {
-                if (!textBox.Text.Contains(","))
+                if (!textBox.Text.Contains("."))
                 {
-                    textBox.Text += ",";
+                    textBox.Text += ".";
                 }
             }
 
@@ -950,8 +950,15 @@ namespace Calculator
                         CalculateResult();
                     }
                     catch (Exception ex) 
-                    {
+                    { 
                     }
+                }
+            }
+            else if  (e.Key == Key.OemPeriod) //клавиша точки
+            {
+                if (!textBox.Text.Contains(","))
+                {
+                    textBox.Text += ".";
                 }
             }
         }
