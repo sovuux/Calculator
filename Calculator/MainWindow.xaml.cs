@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Globalization;
 
 namespace Calculator
 {
@@ -457,91 +458,101 @@ namespace Calculator
 
             else if (number == "eˣ") // вывод экспоненты
             {
-                if (textBox.Text != "")
+                if (!string.IsNullOrEmpty(textBox.Text))
                 {
-                    result = Math.Exp(Convert.ToDouble(textBox.Text));
-                    textBox.Text = result.ToString();
+                    double textBoxValue = double.Parse(textBox.Text, CultureInfo.InvariantCulture);
+                    double result = Math.Exp(textBoxValue);
+                    textBox.Text = result.ToString(CultureInfo.InvariantCulture);
                 }
             }
 
             else if (number == "x²") // вывод числа в квадрате
             {
-                if (textBox.Text != "")
+                if (!string.IsNullOrEmpty(textBox.Text))
                 {
-                    result = Math.Pow(Convert.ToDouble(textBox.Text), 2);
-                    textBox.Text = result.ToString();
+                    double textBoxValue = double.Parse(textBox.Text, CultureInfo.InvariantCulture);
+                    double result = Math.Pow(textBoxValue, 2);
+                    textBox.Text = result.ToString(CultureInfo.InvariantCulture);
                 }
             }
 
             else if (number == "²√x") // вывод квадратного корня
             {
-                if (textBox.Text != "")
+                if (!string.IsNullOrEmpty(textBox.Text))
                 {
-                    result = Math.Sqrt(Convert.ToDouble(textBox.Text));
-                    textBox.Text = result.ToString();
+                    double textBoxValue = double.Parse(textBox.Text, CultureInfo.InvariantCulture);
+                    double result = Math.Sqrt(textBoxValue);
+                    textBox.Text = result.ToString(CultureInfo.InvariantCulture);
                 }
             }
 
             else if (number == "¹/x") // вывод числа 1/x
             {
-                if (textBox.Text != "")
+                if (!string.IsNullOrEmpty(textBox.Text))
                 {
-                    result = 1 / Convert.ToDouble(textBox.Text);
-                    textBox.Text = result.ToString();
+                    double textBoxValue = double.Parse(textBox.Text, CultureInfo.InvariantCulture);
+                    double result = 1 / textBoxValue;
+                    textBox.Text = result.ToString(CultureInfo.InvariantCulture);
                 }
             }
 
             else if (number == "sin") // вывод синуса
             {
-                if (textBox.Text != "")
+                if (!string.IsNullOrEmpty(textBox.Text))
                 {
-                    result = Math.Sin(Convert.ToDouble(textBox.Text));
-                    textBox.Text = result.ToString();
+                    double textBoxValue = double.Parse(textBox.Text, CultureInfo.InvariantCulture);
+                    double result = Math.Sin(textBoxValue);
+                    textBox.Text = result.ToString(CultureInfo.InvariantCulture);
                 }
             }
 
             else if (number == "cos") // вывод косинуса
             {
-                if (textBox.Text != "")
+                if (!string.IsNullOrEmpty(textBox.Text))
                 {
-                    result = Math.Cos(Convert.ToDouble(textBox.Text));
-                    textBox.Text = result.ToString();
+                    double textBoxValue = double.Parse(textBox.Text, CultureInfo.InvariantCulture);
+                    double result = Math.Cos(textBoxValue);
+                    textBox.Text = result.ToString(CultureInfo.InvariantCulture);
                 }
             }
 
             else if (number == "tg") //  вывод тангеса
             {
-                if (textBox.Text != "")
+                if (!string.IsNullOrEmpty(textBox.Text))
                 {
-                    result = Math.Tan(Convert.ToDouble(textBox.Text));
-                    textBox.Text = result.ToString();
+                    double textBoxValue = double.Parse(textBox.Text, CultureInfo.InvariantCulture);
+                    double result = Math.Tan(textBoxValue);
+                    textBox.Text = result.ToString(CultureInfo.InvariantCulture);
                 }
             }
 
             else if (number == "arctg") // вывод арктангенса
             {
-                if (textBox.Text != "")
+                if (!string.IsNullOrEmpty(textBox.Text))
                 {
-                    result = Math.Atan(Convert.ToDouble(textBox.Text));
-                    textBox.Text = result.ToString();
+                    double textBoxValue = double.Parse(textBox.Text, CultureInfo.InvariantCulture);
+                    double result = Math.Atan(textBoxValue);
+                    textBox.Text = result.ToString(CultureInfo.InvariantCulture);
                 }
             }
 
             else if (number == "log") // вывод логарифма 
             {
-                if (textBox.Text != "")
+                if (!string.IsNullOrEmpty(textBox.Text))
                 {
-                    result = Math.Log(Convert.ToDouble(textBox.Text));
-                    textBox.Text = result.ToString();
+                    double textBoxValue = double.Parse(textBox.Text, CultureInfo.InvariantCulture);
+                    double result = Math.Log(textBoxValue);
+                    textBox.Text = result.ToString(CultureInfo.InvariantCulture);
                 }
             }
 
             else if (number == "Ln") // вывод логарифма по основанию 10
             {
-                if (textBox.Text != "")
+                if (!string.IsNullOrEmpty(textBox.Text))
                 {
-                    result = Math.Log10(Convert.ToDouble(textBox.Text));
-                    textBox.Text = result.ToString();
+                    double textBoxValue = double.Parse(textBox.Text, CultureInfo.InvariantCulture);
+                    double result = Math.Log10(textBoxValue);
+                    textBox.Text = result.ToString(CultureInfo.InvariantCulture);
                 }
             }
 
@@ -966,7 +977,14 @@ namespace Calculator
             }
             else if  (e.Key == Key.OemPeriod) //клавиша точки
             {
-                if (!textBox.Text.Contains(","))
+                if (!textBox.Text.Contains("."))
+                {
+                    textBox.Text += ".";
+                }
+            }
+            else if (e.Key == Key.NumLock) //numlock точка
+            {
+                if (!textBox.Text.Contains('.'))
                 {
                     textBox.Text += ".";
                 }
