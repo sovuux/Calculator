@@ -43,8 +43,8 @@ namespace Calculator
         public static double number1;
         public static double number2;
         public static string textString;
-
         private double memoryValue = 0;
+        private static bool isNumLockOn = false;
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -602,6 +602,14 @@ namespace Calculator
             }
         }
 
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e) //обработчик NumLock
+        {
+            if (Keyboard.IsKeyToggled(Key.NumLock))
+            {
+                isNumLockOn = true;
+            }
+        }
+
         private void Buttons_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.D1) //1
@@ -755,7 +763,7 @@ namespace Calculator
                 }
             }
 
-            else if (e.Key == Key.NumPad0) //0
+            else if (e.Key == Key.NumPad0 && isNumLockOn) //numpad 0
             {
                 textString = textBox.Text;
                 char firstSymbol = textString[0];
@@ -770,7 +778,7 @@ namespace Calculator
                 }
             }
 
-            else if (e.Key == Key.NumPad1) //1
+            else if (e.Key == Key.NumPad1 && isNumLockOn) // numpad 1
             {
                 textString = textBox.Text;
                 char firstSymbol = textString[0];
@@ -785,7 +793,7 @@ namespace Calculator
                 }
             }
 
-            else if (e.Key == Key.NumPad2) //2
+            else if (e.Key == Key.NumPad2 && isNumLockOn) //numpad 2
             {
                 textString = textBox.Text;
                 char firstSymbol = textString[0];
@@ -800,7 +808,7 @@ namespace Calculator
                 }
             }
 
-            else if (e.Key == Key.NumPad3) //3
+            else if (e.Key == Key.NumPad3 && isNumLockOn) //numpad 3
             {
                 textString = textBox.Text;
                 char firstSymbol = textString[0];
@@ -815,7 +823,7 @@ namespace Calculator
                 }
             }
 
-            else if (e.Key == Key.NumPad4) //4
+            else if (e.Key == Key.NumPad4 && isNumLockOn) //numpad 4
             {
                 textString = textBox.Text;
                 char firstSymbol = textString[0];
@@ -830,7 +838,7 @@ namespace Calculator
                 }
             }
 
-            else if (e.Key == Key.NumPad5) //5
+            else if (e.Key == Key.NumPad5 && isNumLockOn) //numpad 5
             {
                 textString = textBox.Text;
                 char firstSymbol = textString[0];
@@ -845,7 +853,7 @@ namespace Calculator
                 }
             }
 
-            else if (e.Key == Key.NumPad6) //6
+            else if (e.Key == Key.NumPad6 && isNumLockOn) //numpad 6
             {
                 textString = textBox.Text;
                 char firstSymbol = textString[0];
@@ -860,7 +868,7 @@ namespace Calculator
                 }
             }
 
-            else if (e.Key == Key.NumPad7) //7
+            else if (e.Key == Key.NumPad7 && isNumLockOn) //numpad 7
             {
                 textString = textBox.Text;
                 char firstSymbol = textString[0];
@@ -875,7 +883,7 @@ namespace Calculator
                 }
             }
 
-            else if (e.Key == Key.NumPad8) //8
+            else if (e.Key == Key.NumPad8 && isNumLockOn) //numpad 8
             {
                 textString = textBox.Text;
                 char firstSymbol = textString[0];
@@ -890,7 +898,7 @@ namespace Calculator
                 }
             }
 
-            else if (e.Key == Key.NumPad9) //9
+            else if (e.Key == Key.NumPad9 && isNumLockOn) //numpad 9
             {
                 textString = textBox.Text;
                 char firstSymbol = textString[0];
@@ -949,7 +957,7 @@ namespace Calculator
 
             else if (e.Key == Key.Divide) //деление
             {
-                textBox.Text += " /" ;
+                textBox.Text += " / " ;
             }
 
             else if (e.Key == Key.Add) // плюс
@@ -978,13 +986,6 @@ namespace Calculator
             else if  (e.Key == Key.OemPeriod) //клавиша точки
             {
                 if (!textBox.Text.Contains("."))
-                {
-                    textBox.Text += ".";
-                }
-            }
-            else if (e.Key == Key.NumLock) //numlock точка
-            {
-                if (!textBox.Text.Contains('.'))
                 {
                     textBox.Text += ".";
                 }
