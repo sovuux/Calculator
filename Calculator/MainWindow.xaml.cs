@@ -1,43 +1,39 @@
 ﻿using System;
 using System.Data;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Globalization;
 
 namespace Calculator
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
-            
+
             InitializeComponent();
             textBox.IsReadOnly = true;
-            foreach (UIElement element in mainGrid.Children) 
+            foreach (UIElement element in mainGrid.Children)
             {
                 if (element is Button)
                 {
-                    ((Button) element).Click += Button_Click;
-                }    
+                    ((Button)element).Click += Button_Click;
+                }
             }
             buttonMC.IsEnabled = false;
             buttonMR.IsEnabled = false;
             textBox.Text = "0";
         }
+
+        public string GetTextBoxText()
+        {
+            return textBox.Text;
+        }
+
+        public TextBox TextBoxControl => textBox;
+        public Grid GridControl => mainGrid;
 
         public static double result;
         public static double number1;
@@ -104,15 +100,25 @@ namespace Calculator
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void ClearTextBox()
+        {
+            textBox.Clear();
+            textBox.Text = "0";
+            result = 0;
+        }
+
+        public Button FindButton(string content)
+        {
+            return mainGrid.Children.OfType<Button>().FirstOrDefault(b => b.Content.ToString() == content);
+        }
+
+        public void Button_Click(object sender, RoutedEventArgs e)
         {
             Button clickedButton = (Button)e.OriginalSource;
             string number = clickedButton.Content.ToString();
             if (number == "C") //очистка textbox
             {
-                textBox.Clear();
-                textBox.Text = "0";
-                result = 0;
+                ClearTextBox();
             }
 
             else if (number == "MC")
@@ -217,8 +223,9 @@ namespace Calculator
                     {
                         CalculateResult();
                     }
-                    catch 
+                    catch (Exception ex)
                     {
+                        MessageBox.Show(ex.ToString());
                     }
                 }
             }
@@ -596,8 +603,8 @@ namespace Calculator
             {
                 return 1;
             }
-            else  
-            { 
+            else
+            {
                 return number * CalculateFactorial(number - 1);
             }
         }
@@ -912,7 +919,7 @@ namespace Calculator
                     textBox.Text += "9";
                 }
             }
-            
+
             else if (e.Key == Key.Back) //стирает последний символ
             {
                 if (textBox.Text != "")
@@ -957,7 +964,7 @@ namespace Calculator
 
             else if (e.Key == Key.Divide) //деление
             {
-                textBox.Text += " / " ;
+                textBox.Text += " / ";
             }
 
             else if (e.Key == Key.Add) // плюс
@@ -978,12 +985,13 @@ namespace Calculator
                     {
                         CalculateResult();
                     }
-                    catch (Exception ex) 
-                    { 
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
                     }
                 }
             }
-            else if  (e.Key == Key.OemPeriod) //клавиша точки
+            else if (e.Key == Key.OemPeriod) //клавиша точки
             {
                 if (!textBox.Text.Contains("."))
                 {
